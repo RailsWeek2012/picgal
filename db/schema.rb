@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120719141032) do
+ActiveRecord::Schema.define(:version => 20120720105804) do
 
   create_table "albums", :force => true do |t|
     t.integer  "user_id"
@@ -53,6 +53,9 @@ ActiveRecord::Schema.define(:version => 20120719141032) do
     t.string   "password_digest"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "name"
+    t.text     "description"
+    t.integer  "def_licence"
   end
 
 end
