@@ -11,6 +11,8 @@ Picgal::Application.routes.draw do
   get "pictures/sessions"
 
   get "edit" => "users#edit", as: "edit"
+  #get "show" => "users/show/:name", as: "show"
+  #get "show/:id" => "users#show#", as: ""
 
   get "sessions/new"
   get "login" => "sessions#new", as: "login"
@@ -18,8 +20,11 @@ Picgal::Application.routes.draw do
 
   delete "logout" => "sessions#destroy", as: "logout"
 
-  resources :users, only: [:new, :create]
+  #get "user/:id" => "user#show", as: "profile"   #.....
+
+  resources :users #, only: [:new, :create, :show, :edit]
   root to: "pages#home"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

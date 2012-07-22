@@ -23,7 +23,7 @@
       <%= f.password_field :password_confirmation %>
     </p>
     <p>
-      <%= f.label "Default licence" %>
+      <%= f.label :def_licence, "Default licence" %>
       <%= f.select(:def_licence, [['GNU Public Licence (GPL)', 1], ['Creative Commons Share-alike', 2], ['Public Domain', 3], ['MIT Licence', 4]]) %>
       <%= link_to "[?]", new_user_path %>           <%# TODO: Pfad aendern! %>
     </p>

@@ -3,6 +3,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def list
+    @user = User.all
+  end
+
   def create
     @user = User.new(params[:user])
     if @user.save
@@ -16,4 +20,10 @@ class UsersController < ApplicationController
     @user = current_user
     render "edit"
   end
+
+  def show
+    @username = params(:id)
+    @user = User.find_by_name(@username)
+  end
+
 end
