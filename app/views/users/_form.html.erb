@@ -14,18 +14,20 @@
       <%= f.label :email %>
       <%= f.text_field :email %>
     </p>
+    <% unless user_signed_in? %>
+        <p>
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+        </p>
+    <% end %>
     <p>
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-    </p>
-    <p>
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation %>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
     </p>
     <p>
       <%= f.label :def_licence, "Default licence" %>
       <%= f.select(:def_licence, [['GNU Public Licence (GPL)', 1], ['Creative Commons Share-alike', 2], ['Public Domain', 3], ['MIT Licence', 4]]) %>
-      <%= link_to "[?]", new_user_path %>           <%# TODO: Pfad aendern! %>
+      [?]
     </p>
     <p>
       <%= f.label :description %>

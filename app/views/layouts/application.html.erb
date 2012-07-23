@@ -26,12 +26,12 @@
       <% if user_signed_in? %>
           Logged in as:
           <%= current_user.name %> |
-          <%= link_to  current_user.name, user_path %> |
+          <%#= link_to  current_user.name, show_path %> |
           <%= link_to "Logout", logout_path, method: :delete %> |
           <%= link_to "Edit profile", edit_path %> |
       <% else %>
           <%= link_to "Login", login_path %> |
-          <%= link_to "Sign up", new_user_path %> |
+          <%= link_to "Sign up", signup_path %> |
       <% end %>
       <%=  link_to "Support/FAQ", "http://lmgtfy.com/?q=picgal+help" %>
     </div>

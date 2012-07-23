@@ -22,8 +22,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @username = params(:id)
+    @username = params[:id]
     @user = User.find_by_name(@username)
   end
-
 end

@@ -1,5 +1,6 @@
 Picgal::Application.routes.draw do
 
+=begin
   get "pages/home"
 
   get "pictures/users"
@@ -15,14 +16,24 @@ Picgal::Application.routes.draw do
   #get "show/:id" => "users#show#", as: ""
 
   get "sessions/new"
-  get "login" => "sessions#new", as: "login"
-  post "sessions" => "sessions#create", as: "sessions"
-
-  delete "logout" => "sessions#destroy", as: "logout"
 
   #get "user/:id" => "user#show", as: "profile"   #.....
+=end
 
-  resources :users #, only: [:new, :create, :show, :edit]
+  get "login" => "sessions#new", as: "login"
+  post "sessions" => "sessions#create", as: "sessions"
+  delete "logout" => "sessions#destroy", as: "logout"
+
+  get "signup" => "users#new", as: "signup"
+
+
+  #get "profile" => "users#show", as: "show"
+  get "edit" => "users#edit", as: "edit"
+
+  #match '/profile/:id', :to => 'user#show'
+
+  resources :users #, except: [:new, :create] #, only: [:new, :create, :show, :edit]
+
   root to: "pages#home"
 
   # The priority is based upon order of creation:

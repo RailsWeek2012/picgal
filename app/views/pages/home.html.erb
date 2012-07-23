@@ -1,5 +1,6 @@
 <% if user_signed_in? %>
     <p><%= link_to "My pictures", root_path %></p>
+    <p><%#= link_to "Admin's profile", user_path %></p>
 <% else %>
     You are currently not logged in. Please log in or sign up first.
 <% end %>

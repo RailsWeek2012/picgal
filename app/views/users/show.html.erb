@@ -1,7 +1,7 @@
 <% if @user %>
     <h2><%= @user.name %>' Profile</h2>
-    <p>Default licence: <% @user.def_licence %></p>
-    <p>Description: <% @user.description %></p>
+    <p>Default licence: <%=  @user.def_licence %></p>
+    <p>Description: <%=  @user.description %></p>
 <% else %>
     We're sorry, user '<%= @username %>' could not be found.
 <% end %>
