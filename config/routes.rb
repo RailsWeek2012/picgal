@@ -30,9 +30,12 @@ Picgal::Application.routes.draw do
   #get "profile" => "users#show", as: "show"
   get "edit" => "users#edit", as: "edit"
 
+  get "list" => "users#list", as: "list"
+
   #match '/profile/:id', :to => 'user#show'
 
   resources :users #, except: [:new, :create] #, only: [:new, :create, :show, :edit]
+  resources :comments
 
   root to: "pages#home"
 

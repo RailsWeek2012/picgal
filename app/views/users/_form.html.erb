@@ -26,7 +26,8 @@
     </p>
     <p>
       <%= f.label :def_licence, "Default licence" %>
-      <%= f.select(:def_licence, [['GNU Public Licence (GPL)', 1], ['Creative Commons Share-alike', 2], ['Public Domain', 3], ['MIT Licence', 4]]) %>
+      <%#= f.select(:def_licence, [['GNU Public Licence (GPL)', 1], ['Creative Commons Share-alike', 2], ['Public Domain', 3], ['MIT Licence', 4]]) %>
+      <%= f.collection_select(:def_licence, Licence.all, :id, :name,)%>
       [?]
     </p>
     <p>

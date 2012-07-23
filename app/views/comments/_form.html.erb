@@ -1,0 +1,11 @@
+<hr/>
+<%# form_for @comment do|f| %>
+<% form_for [@commentable, @comment] do|f| %>
+    <p>
+      <%= f.text_area :content %>
+    </p>
+
+    <p>
+      <%= f.submit "Post comment" %>
+    </p>
+<% end %>
