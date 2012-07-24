@@ -1,6 +1,8 @@
 <div class="comment">
   <p>
-    <%=h comment %>
-    <%=  %>comment_bo
+    <b><%= link_to User.find_by_id(comment.user_id).name, user_path(User.find_by_id(comment.user_id).name) %></b> wrote on
+    <i><%= comment.created_at %></i>:
+    <br>
+    <%= comment.content %>
   </p>
 </div>

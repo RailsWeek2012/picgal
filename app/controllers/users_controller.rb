@@ -19,12 +19,14 @@ class UsersController < ApplicationController
 
   def edit
     @user = current_user
-    render "edit"
+    #render "edit"
   end
 
   def update
-    @user = current_user
-    if @user.update_attribute(params[:user])
+    #@user = current_user
+    @user = User.find(session[:user_id])
+    #if @user.update_attribute(params[:name])
+    if @user.update_attributes(params[:user])
       redirect_to root_path, notice: "Profile updated."
     else
       render action: "edit"
@@ -35,6 +37,8 @@ class UsersController < ApplicationController
     @username = params[:id]
     @user = User.find_by_name(@username)
 
-    @comment = Comment.new( :commentable_type => @user )        # not sure if..
+    #@comments = Comment.all                                  # works!
+    @comments = Comment.find_all_by_commentable_id(@user.id)  # works without nil errors!
+    @comment = Comment.new#(:user => @user)
   end
 end

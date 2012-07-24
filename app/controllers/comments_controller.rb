@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
       #redirect_to(root_path)
     else
       flash[:notice] = 'Error: Comment could not be posted.'
+      render :action => 'new'
     end
   end
 
