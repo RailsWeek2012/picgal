@@ -1,5 +1,7 @@
-<% form_for(@commentable) do |f| %>
-    <%= f.error_messages %>
+<%= form_for(@comment) do |f| %>
+    <%#= f.error_messages %>
+    <%= f.hidden_field :commentable_id %>
+    <%= f.hidden_field :commentable_type %>
     <p>
       <%= f.text_area :content %>
     </p>

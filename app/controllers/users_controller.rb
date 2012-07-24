@@ -39,6 +39,8 @@ class UsersController < ApplicationController
 
     #@comments = Comment.all                                  # works!
     @comments = Comment.find_all_by_commentable_id(@user.id)  # works without nil errors!
-    @comment = Comment.new#(:user => @user)
+    @comment = Comment.new(:commentable_id => @user.id)
+    @comment.commentable_type = @user.class
+    session[:return_to] = request.env["REQUEST_URI"]
   end
 end

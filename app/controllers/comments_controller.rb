@@ -1,12 +1,12 @@
 class CommentsController < ApplicationController
   def create
-    @commentable = find_commentable
-    #@comment = Comment.new(params[:comment])   #backup
-    @comment = @commentable.comments.build(params[:comment])
+    @comment = Comment.new(params[:comment])
+    @comment.user = current_user
 
     if @comment.save
       flash[:notice] = 'Comment posted.'
-      #redirect_to(root_path)
+      redirect_to(session[:return_to] || root_path)
+      session[:return_to] = nil
     else
       flash[:notice] = 'Error: Comment could not be posted.'
       render :action => 'new'
@@ -22,15 +22,5 @@ class CommentsController < ApplicationController
 
   def new
     @comment = Comment.new
-  end
-
-  private
-  def find_commentable
-    params.each do |name, value|
-      if name =~ /(.+)_id$/
-        return $1.classify.constantize.find(value)
-      end
-    end
-    nil
   end
 end
