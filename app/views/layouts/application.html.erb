@@ -28,6 +28,7 @@
           <%= link_to current_user.name, user_path(current_user.name) %> |
           <%= link_to "Logout", logout_path, method: :delete %> |
           <%= link_to "Edit profile", edit_path %> |
+          <%= link_to "New album", new_album_path %> |
       <% else %>
           <%= link_to "Login", login_path %> |
           <%= link_to "Sign up", signup_path %> |

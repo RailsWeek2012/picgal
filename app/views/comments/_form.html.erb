@@ -1,17 +1,24 @@
-<%= form_for(@comment) do |f| %>
-    <% if @comment.errors.any? %>
-        <ul>
-          <% @comment.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-          <% end %>
-        </ul>
+<% if user_signed_in? %>
+    <%= form_for(@comment) do |f| %>
+        <% if @comment.errors.any? %>
+            <ul>
+              <% @comment.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+        <% end %>
+        <%= f.hidden_field :commentable_id %>
+        <%= f.hidden_field :commentable_type %>
+        <p>
+          <%= f.text_area :content %>
+        </p>
+        <p>
+          <%= f.submit "Post comment" %>
+        </p>
     <% end %>
-    <%= f.hidden_field :commentable_id %>
-    <%= f.hidden_field :commentable_type %>
+<% else %>
     <p>
-      <%= f.text_area :content %>
-    </p>
-    <p>
-      <%= f.submit "Post comment" %>
+      <%= link_to "Log in", login_path %> or
+      <%= link_to "sign up", signup_path %> first to write a comment.
     </p>
 <% end %>
