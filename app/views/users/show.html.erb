@@ -2,7 +2,13 @@
     <h2><%= @user.name %>'s profile</h2>
     <p><b>Default licence:</b> <%= Licence.find_by_id(@user.def_licence).name %>
     <p><b>Description:</b> <%= @user.description %></p>
-    <p><b>Pictures:</b></p>
+    <p>
+      <b>Galleries:</b>
+      <br>
+      <ul>
+        <%#= render @albums %>
+      </ul>
+    </p>
     <hr/>
     <%= render @comments %>
     <%= render :partial => 'comments/form' %>

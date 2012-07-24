@@ -6,5 +6,4 @@ class UserMailer < ActionMailer::Base
     @url = "http://www.this-is-where-picgal-is-hosted.com/login"
     mail(:to => user.email, :subject => "Welcome to PicGal")
   end
-
 end

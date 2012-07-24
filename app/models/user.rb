@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
   has_many :comments
   attr_accessible :name, :email, :def_licence, :description, :email_notify_comment, :password_digest, :password, :password_confirmation
   validates :name, presence: true, uniqueness: true
-  validates :email, format: /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i, uniqueness: true
+  validates :email, format: /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i #, uniqueness: true
 end
