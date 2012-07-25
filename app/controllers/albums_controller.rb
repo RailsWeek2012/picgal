@@ -5,6 +5,7 @@ class AlbumsController < ApplicationController
 
   def create
     @album = Album.new(params[:album])
+    @album.user = current_user
     if @album.save
       flash[:notice] = 'Album created.'
       redirect_to(session[:return_to] || root_path)
