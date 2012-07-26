@@ -16,7 +16,6 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-
     redirect_to(session[:return_to] || root_path)
     session[:return_to] = nil
   end

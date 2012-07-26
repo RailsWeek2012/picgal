@@ -1,0 +1,21 @@
+<% if @group %>
+    <h2><%= @group.name %> - group profile</h2>
+    <p><b>Description:</b> <%= @group.description %></p>
+    <p>
+        <b>Members:</b>
+        <ul>
+          <%= render @users %>
+        </ul>
+    </p>
+    <p>
+      <b>Members' latest additions:</b>
+      <ul>
+        <%= render @pictures %>
+      </ul>
+    </p>
+    <hr/>
+    <%= render @comments %>
+    <%= render :partial => 'comments/form' %>
+<% else %>
+    We're sorry, group '<%= @group %>' could not be found.
+<% end %>

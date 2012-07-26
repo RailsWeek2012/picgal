@@ -8,8 +8,9 @@ class AlbumsController < ApplicationController
     @album.user = current_user
     if @album.save
       flash[:notice] = 'Album created.'
-      redirect_to(session[:return_to] || root_path)
-      session[:return_to] = nil
+
+      # Redirection directly into the freshly created gallery!
+      redirect_to(album_path(@album))
     else
       flash[:notice] = 'Error: Album could not be created.'
       render :action => 'new'

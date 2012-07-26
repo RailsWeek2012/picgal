@@ -28,7 +28,7 @@ Picgal::Application.routes.draw do
 
 
   get "edit" => "users#edit", as: "edit"
-  get "list" => "users#list", as: "list"
+  get "index" => "users#index", as: "index"
 
   get "licences" => "pages#licences"
 
@@ -38,6 +38,7 @@ Picgal::Application.routes.draw do
     resources :pictures
   end
   resources :pictures#, only: [:show, :edit, :destroy]
+  resources :groups
 
   root to: "pages#home"
 

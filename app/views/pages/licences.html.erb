@@ -3,13 +3,12 @@
   <% for licence in @licences do %>
       <div id="licence">
         <p>Name: <%= licence.name %></p>
-
         <p>Description: <%= licence.description %></p>
         <% if licence.url? %>
             <p>URL: <%= link_to licence.url, licence.url %></p>
         <% end %>
       </div>
-
+      <br/>
   <% end %>
   <%= link_to "...go back", :back %>
 </div>

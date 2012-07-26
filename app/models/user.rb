@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :groups
   has_many :comments, :as => :commentable, :dependent => :destroy
   has_many :comments
-  has_many :albums
+  has_many :albums, :dependent => :destroy
   has_many :pictures, :through => :albums
   attr_accessible :name, :email, :def_licence, :description, :email_notify_comment, :password_digest, :password, :password_confirmation
   validates :name, presence: true, uniqueness: true

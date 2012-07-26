@@ -1,6 +1,8 @@
 <li>
   <%= link_to album.name, album_path(album) %> (<%= album.pictures.count %> pictures,
   <%= album.comments.count + album.picture_comments.count %> comments)
-  <%= link_to "[edit]", edit_album_path(album) %>
-  <%= link_to "[delete]", album, :confirm => 'Delete gallery? All pictures inside will be deleted along!', :method => :delete %>
+  <% if is_owner?(album) %>
+    <%= link_to "[edit]", edit_album_path(album) %>
+    <%= link_to "[delete]", album, :confirm => 'Delete gallery? All pictures inside will be deleted along!', :method => :delete %>
+  <% end %>
 </li>

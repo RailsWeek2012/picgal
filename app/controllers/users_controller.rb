@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     #@username = params[:id]
     #@user = User.find_by_name(@username)
     @user = User.find_by_name(params[:id])
-    @comments = Comment.find_all_by_commentable_id_and_commentable_type(@user.id,@user.class).reverse  # works without nil errors!
+    @comments = Comment.find_all_by_commentable_id_and_commentable_type(@user.id, @user.class).reverse  # works without nil errors!
     #@comments = Comment.find_all_by_commentable_type(@user.class)  # works without nil errors!
     @comment = Comment.new(:commentable_id => @user.id)
     @comment.commentable_type = @user.class

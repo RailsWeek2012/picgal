@@ -2,7 +2,6 @@
   <p>
     <%#= link_to User.find_by_id(comment.user_id).name, user_path(User.find_by_id(comment.user_id).name) # zu umstaendlich... %>
     <b><%= link_to comment.user.name, user_path(comment.user.name) %></b> wrote
-    <%#Current Time: <%= Time.current # TODO CHECK DATE! today/yesterday! comment.MODIFIED? %>
     <% if comment.created_at > Date.yesterday.end_of_day %>
         <i>today at <%= comment.created_at.strftime("%H:%M:%S") %></i>
     <% elsif comment.created_at > Date.yesterday.beginning_of_day %>

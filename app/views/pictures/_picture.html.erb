@@ -1,0 +1,13 @@
+<div class="picture">
+  <%= link_to image_tag(picture.image_url(:thumb)), picture_path(picture) %>
+  <div class="name">
+    <%= link_to picture.name, picture_path(picture) %>
+    [<%= picture.comments.count %> comments]
+    <br/>
+    <i><%= sanitize(truncate(picture.description),:length => 150) %></i>
+  </div>
+  <div class="actions">
+    <%= link_to "edit", edit_picture_path(picture) %> |
+    <%= link_to "delete", picture, :confirm => 'Really delete picture?', :method => :delete %>
+  </div>
+</div>
