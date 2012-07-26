@@ -24,4 +24,12 @@ class AlbumsController < ApplicationController
     #session[:return_to] = nil
   end
 
+  def show
+    @album = Album.find(params[:id])
+    @comments = Comment.find_all_by_commentable_id_and_commentable_type(@album.id,@album.class).reverse
+    @comment = Comment.new(:commentable_id => @album.id)
+    @comment.commentable_type = @album.class
+    session[:return_to] = request.env["REQUEST_URI"]
+  end
+
 end

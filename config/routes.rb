@@ -33,6 +33,7 @@ Picgal::Application.routes.draw do
   resources :users #, except: [:new, :create] #, only: [:new, :create, :show, :edit]
   resources :comments
   resources :albums
+  resources :pictures
 
   root to: "pages#home"
 

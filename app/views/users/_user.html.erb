@@ -1,3 +1,3 @@
 <li>
-  <%= link_to user.name, user_path(user.name) %> (<%= user.albums.count%> galleries)
+  <%= link_to user.name, user_path(user.name) %> (<%= user.albums.count%> galleries, <%#= user.albums.pictures.count.to_s %> pictures)
 </li>
