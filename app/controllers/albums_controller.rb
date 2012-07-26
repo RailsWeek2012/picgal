@@ -20,8 +20,21 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
     @album.destroy
 
-    #redirect_to(session[:return_to] || root_path)
-    #session[:return_to] = nil
+    redirect_to(session[:return_to] || root_path)
+    session[:return_to] = nil
+  end
+
+  def edit
+    @album = Album.find(params[:id])
+  end
+
+  def update
+    @album = Album.find(params[:id])
+    if @album.update_attributes(params[:album])
+      redirect_to root_path, notice: "Gallery updated."
+    else
+      render action: "edit"
+    end
   end
 
   def show

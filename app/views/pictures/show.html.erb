@@ -1,8 +1,11 @@
 <h2><%= @picture.name %></h2>
 <%= image_tag @picture.image_url if @picture.image? %>
 <br/>
+<p>Name: <%= @picture.name %></p>
 <p>Description: <%= @picture.description %></p>
+<p>Source: <%= @picture.source %></p>
 <p>Licence: <%= Licence.find_by_id(@picture.licence).name%></p>
+<p>Date: <%= @picture.created_at %></p>
 <%= link_to "...return to gallery '" + @picture.album.name + "'", album_path(@picture.album) %>
 <hr/>
 <%= render @comments %>

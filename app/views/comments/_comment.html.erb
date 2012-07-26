@@ -11,8 +11,8 @@
         on <i><%= comment.created_at %></i>:
     <% end %>
     <% if is_owner_or_author?(comment) %>
-        <%= link_to "[x]", comment, :confirm => 'Delete comment?', :method => :delete %>
         <%= link_to "[e]", edit_comment_path(comment) %>
+        <%= link_to "[x]", comment, :confirm => 'Delete comment?', :method => :delete %>
     <% end %>
     <br>
     <%= comment.content %>

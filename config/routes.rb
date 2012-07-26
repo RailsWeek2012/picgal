@@ -37,7 +37,7 @@ Picgal::Application.routes.draw do
   resources :albums do
     resources :pictures
   end
-  resources :pictures, only: [:show, :destroy]
+  resources :pictures#, only: [:show, :edit, :destroy]
 
   root to: "pages#home"
 
