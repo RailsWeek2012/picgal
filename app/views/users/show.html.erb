@@ -8,6 +8,12 @@
         <%= render @albums %>
       </ul>
     </p>
+    <p>
+      <b>Groups:</b>
+      <ul>
+        <%= render @user.groups %>
+      </ul>
+    </p>
     <hr/>
     <%= render @comments %>
     <%= render :partial => 'comments/form' %>

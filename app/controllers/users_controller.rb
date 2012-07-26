@@ -39,6 +39,7 @@ class UsersController < ApplicationController
     @comment = Comment.new(:commentable_id => @user.id)
     @comment.commentable_type = @user.class
     @albums = Album.find_all_by_user_id(@user.id)
+    #@groups = @user.groups
     session[:return_to] = request.env["REQUEST_URI"]
   end
 end

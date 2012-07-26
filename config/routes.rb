@@ -40,6 +40,9 @@ Picgal::Application.routes.draw do
   resources :pictures#, only: [:show, :edit, :destroy]
   resources :groups
 
+  get "groups/:id/join" => "groups#join", as: "join_group"
+  put "groups/:id/join" => "groups#join", as: "join_group"
+
   root to: "pages#home"
 
   # The priority is based upon order of creation:

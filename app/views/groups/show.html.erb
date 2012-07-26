@@ -1,6 +1,14 @@
 <% if @group %>
     <h2><%= @group.name %> - group profile</h2>
-    <p><b>Description:</b> <%= @group.description %></p>
+    <%= link_to "Join group", join_group_path %>
+    <p><b>Founder:</b>
+      <!-- Ich habe '@group.founder.name' versucht, hab aber die Foreign-Key-Beziehung nicht hinbekommen. -->
+      <%= link_to User.find(@group.founder).name, user_path(User.find(@group.founder).name) %>
+    </p>
+    <p>
+      <b>Description:</b>
+      <%= @group.description %>
+    </p>
     <p>
         <b>Members:</b>
         <ul>
