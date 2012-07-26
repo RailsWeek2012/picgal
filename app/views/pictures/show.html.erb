@@ -1,0 +1,9 @@
+<h2><%= @picture.name %></h2>
+<%= image_tag @picture.image_url if @picture.image? %>
+<br/>
+<p>Description: <%= @picture.description %></p>
+<p>Licence: <%= Licence.find_by_id(@picture.licence).name%></p>
+<%= link_to "...return to gallery '" + @picture.album.name + "'", album_path(@picture.album) %>
+<hr/>
+<%= render @comments %>
+<%= render :partial => 'comments/form' %>

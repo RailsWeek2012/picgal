@@ -1,0 +1,6 @@
+
+26.07. - 13:20:
+	- picture count in members list
+	- Comments: Delete /edit buttons for author and profile owner
+
+

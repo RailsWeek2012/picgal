@@ -4,13 +4,17 @@
     <b><%= link_to comment.user.name, user_path(comment.user.name) %></b> wrote
     <%#Current Time: <%= Time.current # TODO CHECK DATE! today/yesterday! comment.MODIFIED? %>
     <% if comment.created_at > Date.yesterday.end_of_day %>
-        <i>today at <%= comment.created_at.strftime("%H:%M:%S") %></i>:
+        <i>today at <%= comment.created_at.strftime("%H:%M:%S") %></i>
     <% elsif comment.created_at > Date.yesterday.beginning_of_day %>
-        <i>yesterday at <%= comment.created_at.strftime("%H:%M:%S") %></i>:
+        <i>yesterday at <%= comment.created_at.strftime("%H:%M:%S") %></i>
     <% else %>
         on <i><%= comment.created_at %></i>:
     <% end %>
+    <% if is_owner_or_author?(comment) %>
+        <%= link_to "[x]", comment, :confirm => 'Delete comment?', :method => :delete %>
+        <%= link_to "[e]", edit_comment_path(comment) %>
+    <% end %>
     <br>
     <%= comment.content %>
-  </p>
+</p>
 </div>

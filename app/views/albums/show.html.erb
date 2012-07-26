@@ -1,29 +1,35 @@
 <h2><%= @album.name %></h2>
 <div id="pictures">
-  <%= link_to "Add picture", new_picture_path %>
-  <% if @album.pictures.empty? %>
+<% if @album.pictures.empty? %>
       <p>This gallery contains no pictures (yet).</p>
   <% else %>
       <% for picture in @album.pictures %>
           <div class="picture">
-            <%= image_tag picture.image_url(:thumb) if picture.image? %>
+            <%#= link_to image_tag(picture.image_url(:thumb) if picture.image?) picture_path %>
+            <%#= image_tag picture.image_url(:thumb) if picture.image? %>
+            <%#= link_to "Full size", picture_path(picture) %>
+            <%= link_to image_tag(picture.image_url(:thumb)), picture_path(picture) %>
             <div class="name"><%= picture.name %></div>
             <div class="actions">
-              <%= link_to "edit", edit_picture_path(picture) %> |
+              <%= link_to "edit", edit_album_picture_path(picture) %> |
               <%= link_to "delete", picture, :confirm => 'Really delete picture?', :method => :delete %>
             </div>
           </div>
       <% end %>
   <% end %>
   <div class="clear"></div>
+  <br/>
   <%= link_to "...return to " + @album.user.name + "'s profile", user_path(@album.user.name) %>
+  <% if is_owner?(@album) %>
+      | <%= link_to "Add picture", new_album_picture_path(@album) %>
+  <% end %>
   <hr/>
   <%= render @comments %>
   <%= render :partial => 'comments/form' %>
 </div>
 
 <p>
-  <%#= link_to "Add a Painting", new_picture_path(:gallery_id => @album) %> |
-  <%#= link_to "Remove Gallery", @album, :confirm => 'Are you sure?', :method => :delete %> |
+  <%#= link_to "Add a Painting", new_picture_path(:gallery_id => @album) %>
+  <%#= link_to "Remove Gallery", @album, :confirm => 'Are you sure?', :method => :delete %>
   <%#= link_to "View Galleries", albums_path %>
 </p>
