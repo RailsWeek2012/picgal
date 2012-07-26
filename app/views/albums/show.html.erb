@@ -1,17 +1,22 @@
 <h2><%= @album.name %></h2>
 <div id="pictures">
   <%= link_to "Add picture", new_picture_path %>
-  <% for picture in @album.pictures %>
-    <div class="picture">
-      <%= image_tag picture.image_url(:thumb) if picture.image? %>
-      <div class="name"><%= picture.name %></div>
-      <div class="actions">
-        <%= link_to "edit", edit_picture_path(picture) %> |
-        <%= link_to "delete", picture, :confirm => 'Really delete picture?', :method => :delete %>
-      </div>
-    </div>
+  <% if @album.pictures.empty? %>
+      <p>This gallery contains no pictures (yet).</p>
+  <% else %>
+      <% for picture in @album.pictures %>
+          <div class="picture">
+            <%= image_tag picture.image_url(:thumb) if picture.image? %>
+            <div class="name"><%= picture.name %></div>
+            <div class="actions">
+              <%= link_to "edit", edit_picture_path(picture) %> |
+              <%= link_to "delete", picture, :confirm => 'Really delete picture?', :method => :delete %>
+            </div>
+          </div>
+      <% end %>
   <% end %>
   <div class="clear"></div>
+  <%= link_to "...return to " + @album.user.name + "'s profile", user_path(@album.user.name) %>
   <hr/>
   <%= render @comments %>
   <%= render :partial => 'comments/form' %>

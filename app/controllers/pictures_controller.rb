@@ -5,7 +5,7 @@ class PicturesController < ApplicationController
 
   def create
     @picture = Picture.new(params[:picture])
-    #@picture.album
+    @picture.album =
     if @picture.save
       #redirect_to @picture.album, notice: "Picture uploaded."
       redirect_to(session[:return_to] || root_path, notice: "Picture uploaded") ## Test..
