@@ -24,10 +24,10 @@
             <%= f.password_field :password_confirmation %>
         </p>
     <%# end # Todo # %>
-    <p>                                                                          '/
+    <p>
       <%= f.label :def_licence, "Default licence" %>
       <%= f.collection_select(:def_licence, Licence.all, :id, :name,)%>
-      [?]
+      <%= link_to "[?]",licences_path %>
     </p>
     <p>
       <%= f.label :description %>

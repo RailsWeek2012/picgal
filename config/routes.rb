@@ -30,12 +30,14 @@ Picgal::Application.routes.draw do
   get "edit" => "users#edit", as: "edit"
   get "list" => "users#list", as: "list"
 
+  get "licences" => "pages#licences"
+
   resources :users #, except: [:new, :create] #, only: [:new, :create, :show, :edit]
   resources :comments
   resources :albums do
     resources :pictures
   end
-  resources :pictures, only: [:show]
+  resources :pictures, only: [:show, :destroy]
 
   root to: "pages#home"
 

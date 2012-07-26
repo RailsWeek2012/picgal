@@ -4,4 +4,9 @@ class PagesController < ApplicationController
       @albums = current_user.albums
     end
   end
+
+  def licences
+    @licences = Licence.all
+  end
+
 end

@@ -1,3 +1,4 @@
 <li>
-  <%= link_to album.name, album_path(album) %> (<%= album.pictures.count %> pictures, <%= album.comments.count %> comments)
+  <%= link_to album.name, album_path(album) %> (<%= album.pictures.count %> pictures,
+  <%= album.comments.count + album.picture_comments.count %> comments)
 </li>
