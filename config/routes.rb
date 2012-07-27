@@ -1,25 +1,4 @@
 Picgal::Application.routes.draw do
-
-=begin
-  get "pages/home"
-
-  get "pictures/users"
-
-  get "pictures/comments"
-
-  get "pictures/groups"
-
-  get "pictures/sessions"
-
-  get "edit" => "users#edit", as: "edit"
-  #get "show" => "users/show/:name", as: "show"
-  #get "show/:id" => "users#show#", as: ""
-
-  get "sessions/new"
-
-  #get "user/:id" => "user#show", as: "profile"   #.....
-=end
-
   get "login" => "sessions#new", as: "login"
   post "sessions" => "sessions#create", as: "sessions"
   delete "logout" => "sessions#destroy", as: "logout"
@@ -28,7 +7,7 @@ Picgal::Application.routes.draw do
 
 
   get "edit" => "users#edit", as: "edit"
-  get "index" => "users#index", as: "index"
+  #get "index" => "users#index", as: "index"
 
   get "licences" => "pages#licences"
 

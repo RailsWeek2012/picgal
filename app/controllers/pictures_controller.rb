@@ -9,7 +9,6 @@ class PicturesController < ApplicationController
     @picture.album = Album.find(params[:album_id])
 
     if @picture.save
-      #redirect_to @picture.album, notice: "Picture uploaded."
       redirect_to(session[:return_to] || root_path, notice: "Picture uploaded")
       session[:return_to] = nil
     else

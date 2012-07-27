@@ -2,4 +2,6 @@
 <ul>
   <%= render @groups %>
 </ul>
-<%= link_to "Found a new group", new_group_path %>
+<% if user_signed_in? %>
+    <%= link_to "Found a new group", new_group_path %>
+<% end %>

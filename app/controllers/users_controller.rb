@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def list
+  def index
     @users = User.all
   end
 
@@ -31,15 +31,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    #@username = params[:id]
-    #@user = User.find_by_name(@username)
     @user = User.find_by_name(params[:id])
-    @comments = Comment.find_all_by_commentable_id_and_commentable_type(@user.id, @user.class).reverse  # works without nil errors!
-    #@comments = Comment.find_all_by_commentable_type(@user.class)  # works without nil errors!
+    @comments = Comment.find_all_by_commentable_id_and_commentable_type(@user.id, @user.class).reverse
     @comment = Comment.new(:commentable_id => @user.id)
     @comment.commentable_type = @user.class
     @albums = Album.find_all_by_user_id(@user.id)
-    #@groups = @user.groups
     session[:return_to] = request.env["REQUEST_URI"]
   end
 end

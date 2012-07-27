@@ -14,7 +14,7 @@
     <p>
       <%= f.label :licence, "Default licence" %>
       <%= f.collection_select(:licence, Licence.all, :id, :name,) %>
-      <%= link_to "[?]",licences_path %>
+      <%= link_to "[?]", licences_path %>
     </p>
     <p>
       <%= f.label "Local picture" %>

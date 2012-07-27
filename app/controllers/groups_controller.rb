@@ -56,7 +56,7 @@ class GroupsController < ApplicationController
       redirect_to(session[:return_to] || root_path, notice: "You joined. Welcome :)")
       session[:return_to] = nil
     else
-      redirect_to root_path # TODO aendern!
+      redirect_to group_path(@group), notice: "Error: Could not join group"
     end
   end
 
