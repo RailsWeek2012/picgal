@@ -16,6 +16,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to(session[:return_to] || root_path, notice: "Logout successful. Bye! :)")
+    redirect_to( root_path, notice: "Logout successful. Bye! :)")
   end
 end

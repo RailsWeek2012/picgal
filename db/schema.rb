@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120726205751) do
+ActiveRecord::Schema.define(:version => 20120727173817) do
+
+  create_table "Pictures", :force => true do |t|
+    t.string   "name"
+    t.integer  "album_id"
+    t.string   "licence"
+    t.text     "description"
+    t.string   "source"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "image"
+    t.string   "remote_image_url"
+  end
 
   create_table "albums", :force => true do |t|
     t.integer  "user_id"
@@ -52,20 +64,6 @@ ActiveRecord::Schema.define(:version => 20120726205751) do
     t.text     "description"
   end
 
-  create_table "pictures", :force => true do |t|
-    t.string   "name"
-    t.integer  "album_id"
-    t.string   "filename_orig"
-    t.string   "filename_int"
-    t.string   "licence"
-    t.text     "description"
-    t.string   "source"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-    t.string   "image"
-    t.string   "remote_image_url"
-  end
-
   create_table "users", :force => true do |t|
     t.string   "email"
     t.string   "password_digest"
@@ -74,13 +72,6 @@ ActiveRecord::Schema.define(:version => 20120726205751) do
     t.string   "name"
     t.text     "description"
     t.integer  "def_licence"
-  end
-
-  create_table "users_groups", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "group_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
 end
