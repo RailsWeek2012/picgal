@@ -1,10 +1,10 @@
 Picgal::Application.routes.draw do
+  #TODO [11]: Sessions- und Root-Routing aus Bookmarkmanager übernommen
   get "login" => "sessions#new", as: "login"
   post "sessions" => "sessions#create", as: "sessions"
   delete "logout" => "sessions#destroy", as: "logout"
 
   get "signup" => "users#new", as: "signup"
-
 
   get "edit" => "users#edit", as: "edit"
   #get "index" => "users#index", as: "index"

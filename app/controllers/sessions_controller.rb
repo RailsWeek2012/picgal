@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  #TODO [2]: Aus dem Bookmarkmanager-Foliensatz übernommen.
   def new
   end
 

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  #TODO [3]: "new" und "create" aus dem Bookmarkmanager-Foliensatz
   def new
     @user = User.new
   end

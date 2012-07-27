@@ -2,4 +2,8 @@
   <%= link_to group.name, group_path(group) %>
   (<%= group.users.count %> members with a total of
   <%= Album.find_all_by_user_id(group.users).count %> galleries)
+  <% if is_founder?(group) %>
+    <%= link_to "[edit]", edit_group_path(group) %>
+    <%= link_to "[delete]", group, :confirm => 'Really disband group?', :method => :delete %>
+  <% end %>
 </li>

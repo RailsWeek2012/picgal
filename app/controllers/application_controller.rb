@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  #TODO [1]: Aus dem Bookmarkmanager-Foliensatz übernommen.
   protect_from_forgery
 
   private

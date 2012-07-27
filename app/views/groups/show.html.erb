@@ -2,9 +2,12 @@
     <h2><%= @group.name %> - group profile</h2>
     <% if user_signed_in? %>
         <%= link_to "Join group", join_group_path %>
+        <% if is_founder?(@group) %>
+            | <%= link_to "Edit group", edit_group_path(@group) %>
+        <% end %>
     <% end %>
     <p><b>Founder:</b>
-      <!-- Gehoert eigentlich ins Model... Ich habe '@group.founder.name' versucht, habe aber die Foreign-Key-Beziehung jedoch nicht hinbekommen. -->
+      <!-- Gehoert eigentlich den Controller... Ich habe '@group.founder.name' versucht, habe aber die Foreign-Key-Beziehung nicht hinbekommen. -->
       <%= link_to User.find(@group.founder).name, user_path(User.find(@group.founder).name) %>
     </p>
     <p>
